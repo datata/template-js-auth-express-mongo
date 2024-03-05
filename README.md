@@ -1,35 +1,33 @@
-
 ### Como crear un proyecto express desde cero
 
-``` sh
+```sh
 $ npm init --yes
 ```
 
-``` bash
+```bash
 $ npm i express
 ```
 
-``` bash
+```bash
 $ npm i nodemon -D
 ```
 
-``` bash
+```bash
 $ npm i dotenv -E
 ```
 
 # add type module into package.json
-``` json
+
+```json
 {
-  "type": "module",
+	"type": "module"
 }
 ```
 
-``` bash
+```bash
 $ git init
 ```
 
-
-
-
-
-
+```bash
+$ npm i mongoose
+```
