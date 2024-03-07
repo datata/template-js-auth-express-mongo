@@ -31,8 +31,13 @@ $ git init
 ```bash
 $ npm i mongoose
 ```
+
 ```bash
 $ npm i bcrypt
+```
+
+```bash
+$ npm i jsonwebtoken
 ```
 
 ```txt
