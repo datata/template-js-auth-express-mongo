@@ -63,3 +63,48 @@ export const getBooks = async(req, res) => {
     )
   }
 }
+
+export const udpateBookById = async(req, res) => {
+  try {
+    const { title } = req.body
+
+    const bookId = req.params.id
+
+    if (!title) {
+      return res.status(400).json(
+        {
+          success: true,
+          message: "title required",
+        }
+      )
+    }
+
+    const bookUpdated = await Book.findOneAndUpdate(
+      {
+        _id: bookId 
+      },
+      {
+        title: title
+      },
+      {
+        new: true
+      }
+    )
+
+    res.status(200).json(
+      {
+        success: true,
+        message: "Book updated",
+        data: bookUpdated
+      }
+    )
+  } catch (error) {
+    res.status(500).json(
+      {
+        success: false,
+        message: "Book cant retrieved",
+        error: error.message
+      }
+    )
+  }
+} 
