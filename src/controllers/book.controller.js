@@ -40,3 +40,26 @@ export const createBook = async(req, res) => {
     )
   }
 }
+
+export const getBooks = async(req, res) => {
+  try {
+    // const books = await Book.find().select('title').skip().limit();
+    const books = await Book.find().select('title');
+
+    res.status(200).json(
+      {
+        success: true,
+        message: "Book retrieved",
+        data: books
+      }
+    )
+  } catch (error) {
+    res.status(500).json(
+      {
+        success: false,
+        message: "Book cant retrieved",
+        error: error.message
+      }
+    )
+  }
+}
