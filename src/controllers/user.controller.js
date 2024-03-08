@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import { getUsersService } from "../services/userService.js";
 
 const addBookToFavourite = async(req, res) => {
   try {
@@ -36,4 +37,14 @@ const addBookToFavourite = async(req, res) => {
   }
 }
 
-export { addBookToFavourite }
+const getUsers = async (req, res) => {
+  const users = await getUsersService()
+
+  res.status(200).json({
+    success: true,
+    message: "all users retrieved",
+    data: users
+  })
+}
+
+export { addBookToFavourite, getUsers }
