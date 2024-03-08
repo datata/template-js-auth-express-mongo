@@ -1,17 +1,15 @@
 import Book from "../models/Book.js"
+import { handleError } from "../utils/handleError.js"
 
 export const createBook = async(req, res) => {
   try {
     const { title, description, author } = req.body
     // const title = req.body.title
 
+    // throw new Error('aljdhakjsdhaksdjhas')
+
     if(!title || !description || !author) {
-      return res.status(400).json(
-        {
-          success: false,
-          message: "title description and author required"
-        }
-      )
+      throw new Error('title description and author required')
     }
 
     const newBook = await Book.create(
@@ -31,13 +29,11 @@ export const createBook = async(req, res) => {
       }
     )
   } catch (error) {
-    res.status(500).json(
-      {
-        success: false,
-        message: "Book cant created",
-        error: error.message
-      }
-    )
+    if (error.message === 'title description and author required') {
+      handleError(res, error.message, 404)
+    }
+
+    handleError(res, "Cant create book", 500)
   }
 }
 
