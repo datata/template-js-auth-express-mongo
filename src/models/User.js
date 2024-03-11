@@ -32,7 +32,6 @@ const UserSchema = new Schema(
     versionKey: false,
   }
 )
-
 const User = model("User", UserSchema)
 
 export default User
