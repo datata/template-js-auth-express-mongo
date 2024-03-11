@@ -114,6 +114,11 @@ const bookSeeder = async () => {
 				description: "Description 4",
 				author: "60f3b4e3e3e3e3e3e3e3e3e9",
 			},
+			{
+				title: "Book 5",
+				description: "Description 4",
+				author: "60f3b4e3e3e3e3e3e3e3e3e4",
+			},
 		]);
 
 		console.log("Books created");
@@ -133,7 +138,7 @@ const favouriteBooksSeeder = async () => {
 		const book2 = await Book.findOne({ _id: "60f3b4e3e3e3e3e3e3e3e3e7" });
 		const book3 = await Book.findOne({ _id: "60f3b4e3e3e3e3e3e3e3e3e8" });
 		const book4 = await Book.findOne({ _id: "60f3b4e3e3e3e3e3e3e3e3e9" });
-		const book5 = await Book.findOne({ _id: "60f3b4e3e3e3e3e3e3e3e3e10" });
+		const book5 = await Book.findOne({ _id: "60f3b4e3e3e3e3e3e3e3e3e5" });
 
 		const user = await User.findOne({ _id: "60f3b4e3e3e3e3e3e3e3e3e1" });
 		user.favouriteBooks.push(book);
