@@ -1,8 +1,8 @@
 export const isSuperAdmin = (req, res, next) => {
 	try {
-		const { roleNAme } = req.tokenData;
+		const { roleName } = req.tokenData;
 
-		if (roleNAme !== "super_admin") {
+		if (roleName !== "super_admin") {
 			return res.status(403).json({
 				success: false,
 				message: "Access denied",
