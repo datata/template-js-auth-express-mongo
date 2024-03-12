@@ -6,7 +6,7 @@ export const getUsersService = async () => {
   const users = await User
     .find()
     .select('-password')
-    .populate('favouriteBooks', "-title")
+    .populate('favouriteBooks')
 
   return users
 }

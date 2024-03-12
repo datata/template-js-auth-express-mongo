@@ -104,3 +104,50 @@ export const udpateBookById = async(req, res) => {
     )
   }
 } 
+
+export const getBookById = async(req, res) => {
+  try {
+    const bookId = req.params.id
+
+    const book = await Book.findById(bookId)
+
+    res.status(200).json(
+      {
+        success: true,
+        message: "Book retrieved",
+        data: book
+      }
+    )
+  } catch (error) {
+    res.status(500).json(
+      {
+        success: false,
+        message: "Book cant retrieved",
+        error: error.message
+      }
+    )
+  }
+}
+
+export const deleteBookById = async(req, res) => {
+  try {
+    const bookId = req.params.id
+
+    await Book.findByIdAndDelete(bookId)
+
+    res.status(200).json(
+      {
+        success: true,
+        message: "Book deleted",
+      }
+    )
+  } catch (error) {
+    res.status(500).json(
+      {
+        success: false,
+        message: "Book cant deleted",
+        error: error.message
+      }
+    )
+  }
+}

@@ -1,4 +1,4 @@
-const isSuperAdmin = (req, res, next) => {
+export const isSuperAdmin = (req, res, next) => {
 	try {
 		const { roleNAme } = req.tokenData;
 

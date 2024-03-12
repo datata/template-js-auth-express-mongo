@@ -22,23 +22,6 @@ app.get("/api/healthy", (req, res) => {
 
 app.use("/api", router);
 
-app.get("/books", async (req, res) => {
-	try {
-		const books = await Book.find();
-
-		res.status(200).json({
-			success: true,
-			message: "Books retrrieved successfully",
-			data: books,
-		});
-	} catch (error) {
-		res.status(500).json({
-			success: false,
-			message: error.message,
-		});
-	}
-});
-
 dbConnection()
 	.then(() => {
 		console.log("Database connected");
