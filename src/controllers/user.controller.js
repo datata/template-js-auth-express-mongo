@@ -5,7 +5,7 @@ const addBookToFavourite = async (req, res) => {
 	try {
 		const bookId = req.body.bookId;
 		// debe venir por el token
-		const userId = req.body.userId;
+		const userId = req.tokenData.userId;
 
 		const user = await User.findOne({
 			_id: userId,
